@@ -148,6 +148,9 @@ objects:
         containers:
         - name: "${NAME}"
           image: " "
+          volumeMounts:
+          - mountPath: /usr/src/app/bin/testdb
+            name: leveldb-volume
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -172,6 +175,9 @@ objects:
             value: "${SERVER_PORT}"
           - name: LOG_LEVEL
             value: "${LOG_LEVEL}"
+        volumes:
+        - name: leveldb-volume
+          emptyDir: {}
 parameters:
 - name: NAME
   displayName: Name
