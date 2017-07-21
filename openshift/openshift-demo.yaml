@@ -149,14 +149,8 @@ objects:
         - name: "${NAME}"
           image: " "
           volumeMounts:
-          - mountPath: /usr/src/app/bin
-            name: app-volume
           - mountPath: /usr/src/app/bin/testdb
             name: leveldb-volume
-          - mountPath: /usr/src/app/bin/node_modules
-            name: empty-nodemodules
-          - mountPath: /.config
-            name: nodemon-volume
           ports:
           - containerPort: 8080
           readinessProbe:
@@ -182,11 +176,6 @@ objects:
           - name: LOG_LEVEL
             value: "${LOG_LEVEL}"
         volumes:
-        - name: app-volume
-          hostPath:
-            path: "${APP_VOLUME}"
-        - name: nodemon-volume
-        - name: empty-nodemodules
         - name: leveldb-volume
 parameters:
 - name: NAME
