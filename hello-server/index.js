@@ -13,7 +13,7 @@ const pino = require('pino')({
 const server = restify.createServer({ name: 'hello' })
 
 server.get('/', function (req, res, next) {
-  res.json({ msg: 'Hello OpenShift!' })
+  res.json({ msg: 'Hello World' })
   return next()
 })
 
